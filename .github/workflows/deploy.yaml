@@ -16,7 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           cache: 'pnpm'
-      - run: pnpm exec eleventy --config=eleventy.config.js
+      - name: Install and build
+        run: |
+          pnpm Install
+          pnpm exec eleventy --config=eleventy.config.js
       - name: FTP upload to Porkbun static hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
