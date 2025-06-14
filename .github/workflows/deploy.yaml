@@ -18,7 +18,7 @@ jobs:
         uses: pnpm/action-setup@v4
       - run: pnpm exec eleventy --config=eleventy.config.js
       - name: FTP upload to Porkbun static hosting
-        uses: genietim/ftp-action@releases/4
+        uses: genietim/ftp-action@v4
         with:
           host: ${{ vars.PORKBUN_FTP_HOST }}
           user: ${{ vars.PORKBUN_FTP_USER }}
