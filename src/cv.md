@@ -1,3 +1,6 @@
+---
+permalink: /cv/index.html
+---
 # Experience
 ## IT & Media Technician
 **Temple University Harrisburg** - 2022-present
