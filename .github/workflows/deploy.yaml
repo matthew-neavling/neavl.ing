@@ -18,14 +18,13 @@ jobs:
         uses: pnpm/action-setup@v4
       - run: pnpm exec eleventy --config=eleventy.config.js
       - name: FTP upload to Porkbun static hosting
-        uses: genietim/ftp-action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ vars.PORKBUN_FTP_HOST }}
-          user: ${{ vars.PORKBUN_FTP_USER }}
+          server: ${{ vars.PORKBUN_FTP_HOST }}
+          username: ${{ vars.PORKBUN_FTP_USER }}
           password: ${{ secrets.PORKBUN_FTP_PASSWORD }}
-          forcessl: true
-          localdir: _site
-          remotedir: /
-
+          local-dir: _site
+          server-dir: /
+          security: strict
         
       
