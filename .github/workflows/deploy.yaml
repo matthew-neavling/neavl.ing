@@ -1,0 +1,31 @@
+name: "Test Pull Request"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: 'pnpm'
+      - name: Setup pnpm
+        uses: actions/setup-pnpm@v4
+      - run: pnpm exec eleventy --config=eleventy.config.js
+      - name: FTP upload to Porkbun static hosting
+        uses: genietim/ftp-action@releases/v4
+        with:
+          host: ${{ vars.PORKBUN_FTP_HOST }}
+          user: ${{ vars.PORKBUN_FTP_USER }}
+          password: ${{ secrets.PORKBUN_FTP_PASSWORD }}
+          forcessl: true
+          localdir: _site
+          remotedir: /
+
+        
+      
