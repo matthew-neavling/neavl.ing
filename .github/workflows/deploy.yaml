@@ -26,7 +26,7 @@ jobs:
           server: ${{ vars.PORKBUN_FTP_HOST }}
           username: ${{ vars.PORKBUN_FTP_USER }}
           password: ${{ secrets.PORKBUN_FTP_PASSWORD }}
-          local-dir: _site
+          local-dir: _site/
           server-dir: /
           security: strict
         
