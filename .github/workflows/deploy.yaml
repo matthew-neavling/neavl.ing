@@ -1,4 +1,4 @@
-name: "Test Pull Request"
+name: Deploy to Porkbun via FTP
 
 on:
   push:
@@ -15,10 +15,10 @@ jobs:
         with:
           cache: 'pnpm'
       - name: Setup pnpm
-        uses: actions/setup-pnpm@v4
+        uses: pnpm/action-setup@v4
       - run: pnpm exec eleventy --config=eleventy.config.js
       - name: FTP upload to Porkbun static hosting
-        uses: genietim/ftp-action@releases/v4
+        uses: genietim/ftp-action@latest
         with:
           host: ${{ vars.PORKBUN_FTP_HOST }}
           user: ${{ vars.PORKBUN_FTP_USER }}
