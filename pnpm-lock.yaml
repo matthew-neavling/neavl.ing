@@ -11,6 +11,12 @@ importers:
       '@11ty/eleventy':
         specifier: ^3.1.1
         version: 3.1.1
+      '@11ty/eleventy-navigation':
+        specifier: ^1.0.4
+        version: 1.0.4
+      sass:
+        specifier: ^1.89.2
+        version: 1.89.2
 
 packages:
 
@@ -24,6 +30,9 @@ packages:
     resolution: {integrity: sha512-15oC5M1DQlCaOMUq4limKRYmWiGecDaGwryr7fTE/oM9Ix8siqMvWi+I8VjsfrGr+iViDvWcH/TVI6D12d93mA==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@11ty/eleventy-navigation@1.0.4':
+    resolution: {integrity: sha512-FgIfKiFP1e3plQdIvSRph1tFV44bbCXcYs+AWcwnsfrn5I6Gf0t3hBq9IrR4JdnZ06hlEKq8qRbnbb0nfEZg3A==}
 
   '@11ty/eleventy-plugin-bundle@3.0.6':
     resolution: {integrity: sha512-wlEIMa1SEe6HE6ZyREEnPQiTw72337a2MPkyn0D1IzrqHrKU9euB17mv27LnnnyKvMJamCCqtU0985F5yyDL8g==}
@@ -579,6 +588,10 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+
+  '@11ty/eleventy-navigation@1.0.4':
+    dependencies:
+      dependency-graph: 1.0.0
 
   '@11ty/eleventy-plugin-bundle@3.0.6(posthtml@0.16.6)':
     dependencies:
