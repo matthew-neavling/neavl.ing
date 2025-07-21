@@ -1,5 +1,6 @@
 import path from "node:path";
 import eleventyNavigation from "@11ty/eleventy-navigation";
+import markdownAnchorPlugin from "markdown-it-anchor";
 import * as sass from "sass";
 
 export default function (eleventyConfig) {
@@ -7,6 +8,16 @@ export default function (eleventyConfig) {
      * Plugins
      */
     eleventyConfig.addPlugin(eleventyNavigation);
+
+    /**
+     * Library Extension
+     */
+
+    eleventyConfig.amendLibrary("md", (mdLib) => mdLib
+        .use(markdownAnchorPlugin)
+    );
+
+
 
     /**
      * Extensions
