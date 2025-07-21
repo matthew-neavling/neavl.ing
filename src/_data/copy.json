@@ -1,0 +1,16 @@
+{
+    "sidebar": {
+        "title": "Meet Matt (he/him/his)",
+        "content": "Matthew Neavling is a full-time Tech/Media specialist at Temple University Harrisburg. In his free time, he likes to learn more about programming, computer science, and hand-crafting his own websites."
+    },
+    "socials": [
+        {
+            "link": "https://github.com/matthew-neavling",
+            "site": "GitHub"
+        },
+        {
+            "link":"https://www.linkedin.com/in/matthew-neavling-014091240/",
+            "site":"Linkedin"
+        }
+    ]
+}

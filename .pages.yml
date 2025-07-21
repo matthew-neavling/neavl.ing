@@ -1,0 +1,55 @@
+content:
+  - name: copy
+    label: Copy
+    path: src/_data/copy.json
+    type: file
+    format: json
+    fields:
+      - name: sidebar
+        label: Sidebar
+        type: object
+        description: Sidebar text
+        fields: 
+          - name: title
+            label: Title
+            type: string
+            description: Sidebar content title
+          - name: content
+            label: Content
+            type: text
+            description: Sidebar content
+      - name: socials
+        label: Social Links
+        type: object
+        list: true
+        fields:
+          - name: link
+            label: Link
+            type: string
+            description: Social site link
+          - name: site
+            label: Site Name
+            type: string
+            description: Social site name
+  - name: metadata
+    label: Metadata
+    path: src/_data/metadata.json
+    type: file
+    format: json
+    fields: 
+      - name: base
+        label: Base 
+        type: string
+        description: Site base name
+      - name: author
+        label: Author
+        type: string
+        description: Site author
+      - name: title
+        label: Title
+        type: string
+        description: Site title
+      - name: description
+        label: Description
+        type: string
+        description: Site description

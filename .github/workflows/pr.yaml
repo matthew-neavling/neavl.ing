@@ -1,15 +1,29 @@
-name: "Test Pull Request"
+name: Test build
 
 on:
   pull_request:
-    
+    types:
+      - opened
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup pnpm
-        uses: actions/setup-pnpm@v4
-      - run: IMAGE_STATS_ONLY=true pnpm exec eleventy --config=eleventy.config.js
-      
+    - uses: actions/checkout@v4
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4.1.0
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: latest
+        cache: 'pnpm'
+    - name: Persist Eleventy .cache
+      uses: actions/cache@v4
+      with:
+        key: ${{ runner.os }}-eleventy-fetch-cache
+        path: |
+          ./.cache
+    - name: Install deps and build
+      run: |
+        pnpm install
+        IMAGES_STATS_ONLY=true pnpm exec eleventy --config=eleventy.config.js
