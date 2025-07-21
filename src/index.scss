@@ -1,0 +1,193 @@
+@use "sass:map";
+@use "scss/theme";
+@use "scss/media";
+@use "scss/catppuccin";
+
+
+html,
+#root {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+
+    background-color: theme.$base;
+    color: theme.$text;
+    min-height: 100lvh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@layer global-override {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bolder;
+    }
+
+    h1 {
+        color: theme.$accent;
+    }
+
+    h2 {
+        color: theme.$accent;
+    }
+
+    a {
+        color: theme.$accent;
+        text-decoration-style: dashed;
+
+        &:visited {
+            color: theme.$accent;
+        }
+
+
+
+    }
+}
+
+@layer typography {
+    .font-courier {
+        font-family: 'Courier New', Courier, monospace;
+    }
+}
+
+@container main (width > 400px) {
+    h1 {
+        text-align: center;
+    }
+}
+
+main {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 29rem 1fr;
+
+    @include media.mobile {
+        display: block;
+
+    }
+
+}
+
+article {
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-radius: 2rem;
+}
+
+header {
+    padding-bottom: 5rem;
+
+    @include media.mobile {
+        padding-bottom: 0;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem 0;
+            margin: 0;
+
+            >li {
+                display: block;
+                padding: .25rem;
+                >a{
+                    text-decoration: none;
+                }
+            }
+
+            li#brand {
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bolder;
+
+                >a {
+                }
+            }
+
+            li.active:not(#brand)>a {
+                    text-decoration: solid underline;
+            }
+        }
+    }
+}
+
+footer {
+    border-top: 1px dashed;
+    margin: 1rem;
+    margin-top: 5rem;
+    padding-top: 1rem;
+
+    span#copyright {
+        float: right;
+    }
+}
+
+aside {
+    display: grid;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+    border-radius: 2rem;
+    border: solid 1px theme.$accent;
+    margin: 0 auto;
+    background-color: theme.$base;
+    width: clamp(12rem, 15vw, 20rem);
+    text-align: center;
+    color: theme.$accent;
+
+    @include media.mobile {
+        display: block;
+        width: 90%;
+        position: inherit;
+    }
+
+    figure#portrait {
+        overflow: hidden;
+        background-color: theme.$accent;
+        border-radius: 2rem;
+        aspect-ratio: 1;
+
+        img {
+            width: 100%;
+        }
+
+        @include media.mobile {
+            float: left;
+            margin: 1rem;
+            max-height: 100px;
+        }
+
+
+    }
+
+    figcaption {
+        margin: 1rem;
+
+        .sidebar-title {
+            margin: 0;
+        }
+
+        .sidebar-title {
+            color: theme.$text !important;
+        }
+
+        @include media.mobile {
+            text-align: left;
+        }
+    }
+}
+
+div.error {
+    text-align: center;
+}

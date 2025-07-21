@@ -1,0 +1,19 @@
+{% extends "src/_includes/layout/base.njk" %}
+{% block main %}
+  <aside id="sidebar">
+                <figure id="portrait">
+                    <picture>
+                        <source srcset="/assets/img/matt_large.png" media="(width >= 1120px)" type="image/png"/>
+                        <source srcset="/assets/img/matt_small.png" media="(width < 1120px)" type="image/webp"/>
+                        <img alt="Matthew Neavling" src="/assets/img/matt_large.png"/>
+                    </picture>
+                </figure>
+                <figcaption>
+                    <h4 class="font-courier sidebar-title">{{ copy.sidebar.title }}</h4>
+                    <p>{{ copy.sidebar.content | safe }}</p>
+                </figcaption>
+            </aside>
+            <article>
+                {{ content | safe }}
+            </article>
+{% endblock %}

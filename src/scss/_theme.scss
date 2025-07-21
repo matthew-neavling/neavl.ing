@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "./catppuccin";
+
+$base: catppuccin.$base;
+$text: catppuccin.$rosewater;
+$accent: catppuccin.$rosewater;
